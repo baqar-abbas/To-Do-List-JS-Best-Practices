@@ -42,14 +42,13 @@ const display = () => {
             <img class="edit" src=${edit} alt="edittext"/>
         </label>
         <input class="items" type="text" value="${todoItems[i].text}" readonly />
-
     `;
     ul.append(node);
 
     // Get the selectdots, deleteoption, and editoption elements for this task
-    const selectdots = node.querySelector('.select');
-    const deleteoption = node.querySelector('.delete');
-    const editoption = node.querySelector('.edit');
+    const selectDots = node.querySelector('.select');
+    const deleteOption = node.querySelector('.delete');
+    const editOption = node.querySelector('.edit');
     // Get the checkbox element for this task
     const checkbox = node.querySelector('.checkbox');
 
@@ -83,14 +82,14 @@ const display = () => {
     });
 
     // Add event listeners to show the delete/edit options when the user clicks on the selectdots
-    selectdots.addEventListener('click', () => {
-      selectdots.style.display = 'none';
-      deleteoption.style.display = 'block';
-      editoption.style.display = 'block';
+    selectDots.addEventListener('click', () => {
+      selectDots.style.display = 'none';
+      deleteOption.style.display = 'block';
+      editOption.style.display = 'block';
     });
 
     // Add event listener for deleting a task
-    deleteoption.addEventListener('click', () => {
+    deleteOption.addEventListener('click', () => {
       const itemKey = parseInt(node.getAttribute('data-key'), 10);
       const itemIndex = todoItems.findIndex((item) => item.index === itemKey);
       todoItems.splice(itemIndex, 1);
@@ -104,7 +103,7 @@ const display = () => {
       display();
     });
 
-    editoption.addEventListener('click', () => {
+    editOption.addEventListener('click', () => {
       const itemKey = parseInt(node.getAttribute('data-key'), 10);
       const itemIndex = todoItems.findIndex((item) => item.index === itemKey);
 
